@@ -1,0 +1,16 @@
+version: '3.9'
+
+services:
+  mssql:    
+    container_name: env-local-ecapex-sqlserver
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    ports:
+      - "1434:1433"
+    environment:
+      MSSQL_PID: "Developer"
+      MSSQL_LCID: "1036"
+      MSSQL_SA_PASSWORD: "Pa$$w0rd"
+      ACCEPT_EULA: "Y"
+volumes:
+  cache:
+    driver: local
