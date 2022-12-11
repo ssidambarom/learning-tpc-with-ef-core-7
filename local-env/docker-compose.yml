@@ -2,14 +2,14 @@ version: '3.9'
 
 services:
   mssql:    
-    container_name: env-local-ecapex-sqlserver
+    container_name: env-local-ef-core-7-learning-sqlserver
     image: mcr.microsoft.com/mssql/server:2019-latest
     ports:
       - "1434:1433"
     environment:
       MSSQL_PID: "Developer"
       MSSQL_LCID: "1036"
-      MSSQL_SA_PASSWORD: "Pa$$w0rd"
+      MSSQL_SA_PASSWORD: "Pa55w0rd!!"
       ACCEPT_EULA: "Y"
 volumes:
   cache:

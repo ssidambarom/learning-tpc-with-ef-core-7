@@ -17,14 +17,9 @@ public class PersonContext : DbContext
     public DbSet<Technician> Technicians => Set<Technician>();
     public DbSet<BusinessManager> Managers => Set<BusinessManager>();
 
-
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    {
-        optionsBuilder
-            .EnableSensitiveDataLogging();
-
-        optionsBuilder.LogTo(Console.WriteLine, LogLevel.Information);
-    }
+        => optionsBuilder.EnableSensitiveDataLogging()
+            .LogTo(Console.WriteLine, LogLevel.Information);
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -48,36 +43,5 @@ public class PersonContext : DbContext
                 r => r.HasOne<Customer>().WithMany().OnDelete(DeleteBehavior.ClientCascade),
                 l => l.HasOne<BusinessManager>().WithMany().OnDelete(DeleteBehavior.Cascade));
 
-    }
-}
-
-
-public class TptStrategyPersonContext : PersonContext
-{
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    {
-        optionsBuilder.UseSqlServer("Server=localhost,1434;Database=TptStrategy;User ID=sa;Password=Pa$$w0rd;");
-        base.OnConfiguring(optionsBuilder);
-    }
-
-    protected override void OnModelCreating(ModelBuilder modelBuilder)
-    {
-        modelBuilder.Entity<Person>().UseTptMappingStrategy();
-        base.OnModelCreating(modelBuilder);
-    }
-}
-
-public class TpcStrategyPersonContext : PersonContext
-{
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    {
-        optionsBuilder.UseSqlServer("Server=localhost,1434;Database=TpcStrategy;User ID=sa;Password=Pa$$w0rd;");
-        base.OnConfiguring(optionsBuilder);
-    }
-
-    protected override void OnModelCreating(ModelBuilder modelBuilder)
-    {
-        modelBuilder.Entity<Person>().UseTpcMappingStrategy();
-        base.OnModelCreating(modelBuilder);
     }
 }

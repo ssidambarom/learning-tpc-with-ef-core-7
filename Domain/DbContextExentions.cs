@@ -26,9 +26,11 @@ public static class DbContextExentions
         var manager1 = new BusinessManager($"ManagerName{index}", $"ManagerSurname{index++}");
         manager1.Portfolio.Add(client1);
         manager1.Portfolio.Add(client2);
+        entitiesToSave.Add(manager1);
 
         var manager2 = new BusinessManager($"ManagerName{index}", $"ManagerSurname{index++}");
         manager2.Portfolio.Add(client3);
+        entitiesToSave.Add(manager2);
 
         entitiesToSave.Add(new Technician($"TechnicianName{index}", $"TechnicianSurname{index++}", "Logistic"));
         entitiesToSave.Add(new Technician($"TechnicianName{index}", $"TechnicianSurname{index++}", "Cloud"));

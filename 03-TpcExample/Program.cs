@@ -1,13 +1,13 @@
-﻿using _01TphExample;
-using Domain;
+﻿using Domain;
+using _03TphExample;
 
 internal class Program
 {
     /*
     dotnet --list-sdks 
 
-    dotnet new console -n 01-TphExample
-    dotnet sln add .\01-TphExample\  
+    dotnet new console -n 03-TpcExample
+    dotnet sln add .\03-TpcExample\  
     dotnet add reference ..\Domain\Domain.csproj 
 
     dotnet add package Microsoft.EntityFrameworkCore.Design 
@@ -16,16 +16,16 @@ internal class Program
 
     dotnet ef dbcontext list
 
-    dotnet ef migrations add InitialCreate -c TphStrategyContext 
+    dotnet ef migrations add InitialCreate -c TpcStrategyContext 
     
     dotnet ef migrations script -i -o Migrations.sql
     */
     private static async Task Main(string[] args)
     {
-        Console.WriteLine("Run Tph strateg ...");
+        Console.WriteLine("Run Tpc strateg ...");
 
-        await DbContextExentions.Seed<TphStrategyContext>();
+        await DbContextExentions.Seed<TpcStrategyContext>();
 
-        await DbContextExentions.ReadAllDb<TphStrategyContext>();
+        await DbContextExentions.ReadAllDb<TpcStrategyContext>();
     }
 }

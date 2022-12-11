@@ -1,0 +1,46 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "01-TphExample",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/01-TphExample/bin/Debug/net7.0/01-TphExample.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/01-TphExample",
+            "console": "internalConsole",
+            "stopAtEntry": false
+        },
+        {
+            "name": "02-TptExample",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/02-TptExample/bin/Debug/net7.0/02-TptExample.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/02-TptExample",
+            "console": "internalConsole",
+            "stopAtEntry": false
+        },
+        {
+            "name": "03-TpcExample",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/03-TpcExample/bin/Debug/net7.0/03-TpcExample.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/03-TpcExample",
+            "console": "internalConsole",
+            "stopAtEntry": false
+        },
+        {
+            "name": ".NET Core Attach",
+            "type": "coreclr",
+            "request": "attach"
+        }
+    ]
+}
