@@ -15,4 +15,3 @@ public class Customer : Person
 
     public override string ToString() => $"Contacts ({Name}, {SurName}), has contact with {string.Join(",", Contacts.Select(c => (c.Name, c.SurName)))}";
 }
-

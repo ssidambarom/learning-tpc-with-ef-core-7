@@ -11,6 +11,7 @@ public class Technician : Employee
     }
 
     public string Expertise { get; set; }
+
     public override string ToString() => $"Technician ({Name}, {SurName}), has expertise on {Expertise}.";
 }
 

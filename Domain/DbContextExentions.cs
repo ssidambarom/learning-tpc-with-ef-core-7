@@ -48,6 +48,12 @@ public static class DbContextExentions
     {
         using var context = new TContext();
 
+        Console.WriteLine("All persons:");
+        foreach (var person in await context.Persons.ToListAsync())
+        {
+            Console.WriteLine($"   >> {person}");
+        }
+
         Console.WriteLine("All employees:");
         foreach (var employee in await context.Employees.ToListAsync())
         {
@@ -55,13 +61,13 @@ public static class DbContextExentions
         }
 
         Console.WriteLine("All customers:");
-        foreach (var customer in await context.Customers.ToListAsync())
+        foreach (var customer in await context.Customers.Include(c => c.Contacts).ToListAsync())
         {
             Console.WriteLine($"   >> {customer}");
         }
 
         Console.WriteLine("All manager:");
-        foreach (var manager in await context.Managers.ToListAsync())
+        foreach (var manager in await context.Managers.Include(m => m.Portfolio).ToListAsync())
         {
             Console.WriteLine($"   >> {manager}");
         }
